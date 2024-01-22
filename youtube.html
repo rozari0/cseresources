@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <title>Youtube Channels | Varendra University CSE Resources</title>
+</head>
+
+<body>
+    <div class="container" data-include="navbar"></div>
+    <section class="main-content container">
+        <h2>Helpful YouTube Channels for CSE Students</h2>
+        <table id="youtube-channel-table" class="youtube-channel-table">
+            <thead>
+                <tr>
+                    <th>Channel</th>
+                    <th>Subjects</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be dynamically added here using JavaScript -->
+            </tbody>
+        </table>
+    </section>
+
+    <script src="scripts/include.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var jsonData = [
+                {
+                    "channel": "Abdul Bari",
+                    "subjects": "Data Structures, Algorithms",
+                    "url": "https://www.youtube.com/@abdul_bari/videos"
+                },
+                {
+                    "channel": "Binod Suman Academy",
+                    "subjects": "Neural Network, Kernel",
+                    "url": "https://www.youtube.com/@binodsuman/videos"
+                },
+                {
+                    "channel": "Faisal",
+                    "subjects": "Operating System",
+                    "url": "https://www.youtube.com/@fbash_"
+                },
+                {
+                    "channel": "Hussein Nasser",
+                    "subjects": "Algorithims, Backend ",
+                    "url": "https://www.youtube.com/@hnasr/videos",
+                },
+                {
+                    "channel": "Algorithm Every Day",
+                    "subjects": "Algorithms",
+                    "url": "https://www.youtube.com/@vivekanandkhyade/videos"
+                }
+            ];
+
+            function populateTable() {
+                var tableBody = document.getElementById("youtube-channel-table").getElementsByTagName('tbody')[0];
+
+                // Loop through the JSON data and add rows to the table
+                jsonData.forEach(function (item) {
+                    var row = tableBody.insertRow(tableBody.rows.length);
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+
+                    cell1.innerHTML = `<a href="${item.url}"> ${item.channel}</a>`;
+                    cell2.innerHTML = item.subjects;
+                });
+            }
+
+            // Call the function to populate the table
+            populateTable();
+        });
+
+    </script>
+</body>
+
+</html>
